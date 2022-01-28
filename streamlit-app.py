@@ -6,6 +6,8 @@ from nltk.corpus import stopwords
 from sentence_transformers import SentenceTransformer, util
 import streamlit as st
 from PIL import Image
+
+
 st.set_page_config(layout="wide")
 
 def process_sentences(sentences):
