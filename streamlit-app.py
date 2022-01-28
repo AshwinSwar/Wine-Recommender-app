@@ -2,18 +2,36 @@ import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 import numpy as np
 import nltk
-from nltk.corpus import stopwords
+#from nltk.corpus import stopwords
 from sentence_transformers import SentenceTransformer, util
 import streamlit as st
 from PIL import Image
 
+STOP_WORDS = {'m', 'hadn', 'yourself', 'this', 'what', 'from', 'will', 'herself', 
+              "aren't", 'too', "that'll", "didn't", 'did', 'how', 'ain', "you'll", 'into', 'off', 
+              'than', 'now', 're', 'shan', "shan't", 'where', "you'd", "needn't", 'being', 'so', 
+              'can', 'of', 'isn', 'or', "hadn't", 'then', 'he', 'with', 'won', "wasn't", 'wouldn', 
+              'before', 'between', 'which', 'very', 'under', "won't", 'hers', "you're", 'it', 
+              'over', 've', 'him', 'yourselves', 'was', 'himself', "isn't", 'ours', 'these', 'no',
+              'down', 'they', 'about', 'through', 'other', 'don', 'ourselves', 'my', "mustn't",
+              "weren't", 'because', 'i', 'who', 'same', 'just', 'wasn', 'not', 'to', 'those', 
+              "doesn't", 'hasn', 'be', 'were', 'further', 'y', 'if', 'nor', 'am', "wouldn't",
+              's', 'theirs', 'most', "should've", 'her', 'only', 'our', 'below', 'haven',
+              'a', 'when', 'why', 'o', 'more', 'had', 'are', 'an', 'again', 'some', 'itself',
+              'mightn', 'been', 'after', "don't", 'didn', 'ma', 'she', 'have', 'against', 'is', 
+              'yours', 'both', 'its', 'your', 'doesn', 'his', 'but', 'until', 'do', 'on', 'that', 
+              'each', "it's", 'themselves', 'such', 'any', 't', 'couldn', 'the', "she's", 'does',
+              'their', 'doing', 'and', 'once', 'whom', 'we', 'all', "you've", 'has', 'aren', 
+              'as', 'you', 'few', 'should', 'll', 'shouldn', 'there', 'above', 'own', "hasn't",
+              'at', "haven't", 'mustn', 'them', 'for', 'in', 'needn', 'me', "couldn't", 'during',
+              "mightn't", 'weren', 'myself', 'here', 'by', 'out', "shouldn't", 'having', 'd',
+              'up', 'while'}
 
 st.set_page_config(layout="wide")
 
 def process_sentences(sentences):
-       stop_words = set(stopwords.words('english'))
        word_tokens = nltk.word_tokenize(sentences)
-       tokenized_sentence = [w for w in word_tokens if not w.lower() in stop_words]
+       tokenized_sentence = [w for w in word_tokens if not w.lower() in STOP_WORDS]
        remove_punctuation = [word for word in tokenized_sentence if word.isalnum()]
        cleaned_text = ''
        for word in remove_punctuation:
