@@ -29,6 +29,15 @@ STOP_WORDS = {'m', 'hadn', 'yourself', 'this', 'what', 'from', 'will', 'herself'
 
 st.set_page_config(layout="wide")
 
+@st.experimental_memo
+def get_punkt():
+       nltk.download('punkt')
+get_punkt()
+
+@st.experimental_memo
+def load_model():
+       return SentenceTransformer('distilbert-base-nli-mean-tokens')
+
 def process_sentences(sentences):
        word_tokens = nltk.word_tokenize(sentences)
        tokenized_sentence = [w for w in word_tokens if not w.lower() in STOP_WORDS]
@@ -84,7 +93,7 @@ user_input = st.text_area('', )
 button_pressed = st.button('Give me wine recommendations')
 
 if button_pressed:
-       model = SentenceTransformer('distilbert-base-nli-mean-tokens')
+       model = load_model()
        out = np.dot(df_non_des, input_array)
        max_ids = np.argwhere(out == np.max(out))
        
