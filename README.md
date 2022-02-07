@@ -1,4 +1,5 @@
 # Wine-Recommender-app
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/[user name]/[repo name]/[branch name]/[app path])
 You can interact with this app here: <br>
 https://share.streamlit.io/ashwinswar/wine-recommender-app/streamlit-app.py <br>
 <br>
