@@ -1,5 +1,5 @@
 # Wine-Recommender-app
-You can interact with this app here:[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/ashwinswar/wine-recommender-app/streamlit-app.py)
+You can interact with this app here:  [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/ashwinswar/wine-recommender-app/streamlit-app.py)
 <br>
 <br>
 This is a recommender app that gives wine recommendation based on user attribute selection and a worded description of flavours. <br>
